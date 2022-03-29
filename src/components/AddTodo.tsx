@@ -11,6 +11,7 @@ export function AddTodo(props: IAddProps) {
   function addNewTodo() {
     let newTodo = new Todo(todoText);
     props.addTodoFromChild(newTodo);
+    setTodoText("");
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
