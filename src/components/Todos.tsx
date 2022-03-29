@@ -13,6 +13,7 @@ export function Todos() {
   function toggleTodos(todoToToggle: Todo) {
     todoToToggle.done = !todoToToggle.done;
     console.log(todoToToggle);
+    setTodos([...todos]);
   }
 
   let todoHtml = todos.map((todo: Todo, i) => {
