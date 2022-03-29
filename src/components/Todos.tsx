@@ -4,19 +4,21 @@ import { AddTodo } from "./AddTodo";
 import { PrintTodo } from "./PrintTodo";
 
 export function Todos() {
-  const [todos, setTodos] = useState<Todo[]>([
-    { todo: "hej" },
-    { todo: "handla" },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   function addTodo(todo: Todo): void {
     setTodos([...todos, todo]);
   }
 
+  function toggleTodos(todoToToggle: Todo) {
+    todoToToggle.done = !todoToToggle.done;
+    console.log(todoToToggle);
+  }
+
   let todoHtml = todos.map((todo: Todo, i) => {
     return (
       <>
-        <PrintTodo key={i} todo={todo}></PrintTodo>
+        <PrintTodo key={i} todo={todo} toggleTodo={toggleTodos}></PrintTodo>
       </>
     );
   });
