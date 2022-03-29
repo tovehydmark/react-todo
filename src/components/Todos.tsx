@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Todo } from "../models/Todo";
+import { AddTodo } from "./AddTodo";
 import { PrintTodo } from "./PrintTodo";
 
 export function Todos() {
@@ -7,6 +8,10 @@ export function Todos() {
     { todo: "hej" },
     { todo: "handla" },
   ]);
+
+  function addTodo(todo: Todo): void {
+    setTodos([...todos, todo]);
+  }
 
   let todoHtml = todos.map((todo: Todo, i) => {
     return (
@@ -16,5 +21,11 @@ export function Todos() {
     );
   });
 
-  return <>{todoHtml}</>;
+  return (
+    <>
+      <AddTodo addTodoFromChild={addTodo}></AddTodo>
+
+      {todoHtml}
+    </>
+  );
 }
