@@ -1,4 +1,5 @@
 import { Todo } from "../models/Todo";
+import { Div } from "../styled-components/Div";
 import { Ul } from "../styled-components/Ul";
 
 interface ITodoProps {
@@ -18,17 +19,20 @@ export function PrintTodo(props: ITodoProps) {
 
   return (
     <>
-      {props.todo.done ? (
-        <Ul>
-          <li onClick={taskIsDoneClick}>{props.todo.todo}</li>
-          <button onClick={deleteTaskClick}>x</button>
-        </Ul>
-      ) : (
-        <ul>
-          <li onClick={taskIsDoneClick}>{props.todo.todo}</li>
-          <button onClick={deleteTaskClick}>x</button>
-        </ul>
-      )}
+      <Div>
+        {props.todo.done ? (
+          <Ul>
+            <li onClick={taskIsDoneClick}>{props.todo.todo}</li>
+
+            <button onClick={deleteTaskClick}>x</button>
+          </Ul>
+        ) : (
+          <ul>
+            <li onClick={taskIsDoneClick}>{props.todo.todo}</li>
+            <button onClick={deleteTaskClick}>x</button>
+          </ul>
+        )}
+      </Div>
     </>
   );
 }
