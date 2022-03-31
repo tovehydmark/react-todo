@@ -35,8 +35,6 @@ export function Todos() {
   }
 
   let todoHtml = todos.map((todo: Todo, i) => {
-    let index = i;
-
     return (
       <>
         <PrintTodo

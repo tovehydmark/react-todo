@@ -8,11 +8,11 @@ interface ITodoProps {
 }
 
 export function PrintTodo(props: ITodoProps) {
-  function handleClick() {
+  function taskIsDoneClick() {
     props.toggleTodo(props.todo);
   }
 
-  function handleButtonClick() {
+  function deleteTaskClick() {
     props.deleteTodo(props.todo);
   }
 
@@ -20,13 +20,13 @@ export function PrintTodo(props: ITodoProps) {
     <>
       {props.todo.done ? (
         <Ul>
-          <li onClick={handleClick}>{props.todo.todo}</li>
-          <button onClick={handleButtonClick}>x</button>
+          <li onClick={taskIsDoneClick}>{props.todo.todo}</li>
+          <button onClick={deleteTaskClick}>x</button>
         </Ul>
       ) : (
         <ul>
-          <li onClick={handleClick}>{props.todo.todo}</li>
-          <button onClick={handleButtonClick}>x</button>
+          <li onClick={taskIsDoneClick}>{props.todo.todo}</li>
+          <button onClick={deleteTaskClick}>x</button>
         </ul>
       )}
     </>
