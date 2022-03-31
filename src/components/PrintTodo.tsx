@@ -4,7 +4,7 @@ import { Ul } from "../styled-components/Ul";
 interface ITodoProps {
   todo: Todo;
   toggleTodo(todo: Todo): void;
-  deleteTodo(i: number): void;
+  deleteTodo(todo: Todo): void;
 }
 
 export function PrintTodo(props: ITodoProps) {
@@ -12,8 +12,8 @@ export function PrintTodo(props: ITodoProps) {
     props.toggleTodo(props.todo);
   }
 
-  function handleButtonClick(key: any) {
-    console.log(key);
+  function handleButtonClick() {
+    props.deleteTodo(props.todo);
   }
 
   return (
