@@ -12,14 +12,22 @@ export function Todos() {
 
   function toggleTodos(todoToToggle: Todo) {
     todoToToggle.done = !todoToToggle.done;
-    console.log(todoToToggle);
     setTodos([...todos]);
+  }
+
+  function deleteTodo(i: number) {
+    // todos.findIndex(i);
   }
 
   let todoHtml = todos.map((todo: Todo, i) => {
     return (
       <>
-        <PrintTodo key={i} todo={todo} toggleTodo={toggleTodos}></PrintTodo>
+        <PrintTodo
+          key={i}
+          todo={todo}
+          toggleTodo={toggleTodos}
+          deleteTodo={deleteTodo}
+        ></PrintTodo>
       </>
     );
   });
